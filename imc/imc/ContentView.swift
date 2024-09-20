@@ -47,15 +47,12 @@ struct ContentView: View {
                 VStack(alignment: .center) {
                     TextField("Insira seu peso", text: $peso)
                         .multilineTextAlignment(.center)
-                        .background(.white)
-                        .frame(width: 250)
-                        .cornerRadius(5)
+                        .textFieldStyle(.roundedBorder)
+                        .padding()
                     
                     TextField("Insira sua altura", text: $altura)
                         .multilineTextAlignment(.center)
-                        .frame(width: 250)
-                        .background(.white)
-                        .cornerRadius(5)
+                        .textFieldStyle(.roundedBorder)
                         .padding()
                     
                     Button("Calcular") {
