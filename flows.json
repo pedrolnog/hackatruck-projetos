@@ -1,0 +1,209 @@
+[
+    {
+        "id": "3979d576985247e7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "daf3f4dddf8fdd9a",
+        "type": "http in",
+        "z": "3979d576985247e7",
+        "name": "",
+        "url": "/vascoGET",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 280,
+        "wires": [
+            [
+                "85837d5c461c37c1"
+            ]
+        ]
+    },
+    {
+        "id": "85837d5c461c37c1",
+        "type": "cloudantplus in",
+        "z": "3979d576985247e7",
+        "name": "",
+        "cloudant": "de7456ba9a517de7",
+        "database": "pedrolnog.db",
+        "service": "_ext_",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 520,
+        "y": 280,
+        "wires": [
+            [
+                "865e52d89394e3d1"
+            ]
+        ]
+    },
+    {
+        "id": "44c54242c441e66d",
+        "type": "cloudantplus out",
+        "z": "3979d576985247e7",
+        "name": "",
+        "cloudant": "de7456ba9a517de7",
+        "database": "pedrolnog.db",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 520,
+        "y": 400,
+        "wires": [
+            [
+                "e6385378a9bc2bc2"
+            ]
+        ]
+    },
+    {
+        "id": "f70e8d61b9214981",
+        "type": "http in",
+        "z": "3979d576985247e7",
+        "name": "",
+        "url": "/vascoPOST",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "44c54242c441e66d"
+            ]
+        ]
+    },
+    {
+        "id": "865e52d89394e3d1",
+        "type": "http response",
+        "z": "3979d576985247e7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 810,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "044bc3ce7d77bf23",
+        "type": "cloudantplus out",
+        "z": "3979d576985247e7",
+        "name": "",
+        "cloudant": "b797ab07b15070bc",
+        "database": "pedrolnog.db",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 520,
+        "y": 520,
+        "wires": [
+            [
+                "da5d0ccd8020572f"
+            ]
+        ]
+    },
+    {
+        "id": "3e876729a3090ab8",
+        "type": "http in",
+        "z": "3979d576985247e7",
+        "name": "",
+        "url": "/vascoDELETE",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 520,
+        "wires": [
+            [
+                "044bc3ce7d77bf23"
+            ]
+        ]
+    },
+    {
+        "id": "e6385378a9bc2bc2",
+        "type": "http response",
+        "z": "3979d576985247e7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 810,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "da5d0ccd8020572f",
+        "type": "http response",
+        "z": "3979d576985247e7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 810,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f03ebb3eb4a438e8",
+        "type": "cloudantplus out",
+        "z": "3979d576985247e7",
+        "name": "",
+        "cloudant": "de7456ba9a517de7",
+        "database": "pedrolnog.db",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 520,
+        "y": 640,
+        "wires": [
+            [
+                "e3fc1b24e4022af5"
+            ]
+        ]
+    },
+    {
+        "id": "c63e340f24f5d563",
+        "type": "http in",
+        "z": "3979d576985247e7",
+        "name": "",
+        "url": "/vascoPUT",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 640,
+        "wires": [
+            [
+                "f03ebb3eb4a438e8"
+            ]
+        ]
+    },
+    {
+        "id": "e3fc1b24e4022af5",
+        "type": "http response",
+        "z": "3979d576985247e7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 810,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "de7456ba9a517de7",
+        "type": "cloudantplus",
+        "host": "https://8685b21f-dcdc-4864-a9bc-84e5121ccc12-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "Credencial4",
+        "useapikey": true
+    },
+    {
+        "id": "b797ab07b15070bc",
+        "type": "cloudantplus",
+        "host": "https://8685b21f-dcdc-4864-a9bc-84e5121ccc12-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "cred2",
+        "useapikey": true
+    }
+]
